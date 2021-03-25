@@ -1,0 +1,89 @@
+{
+  "Menu": {
+    "Productos": {
+      "Platos Fuerte": {
+        "Tacos al Pastor": {
+          "Precio": 3500,
+          "Duracion": 7,
+          "Mediano": true
+        },
+        "Hamburguesa Sencilla": {
+          "Precio": 4500,
+          "Duracion": 10,
+          "Mediano": true
+        },
+        "Quesadillas": {
+          "Precio": 6700,
+          "Duracion": 6,
+          "Mediano": false
+        },
+        "Burrito": {
+          "Precio": 3000,
+          "Duracion": 8,
+          "Mediano": false
+        },
+        "Ensalada Premium": {
+          "Precio": 6000,
+          "Duracion": 3,
+          "Mediano": false
+        },
+        "Falafel": {
+          "Precio": 2500,
+          "Duracion": 4,
+          "Mediano": true
+        }
+      },
+      "Acompanamientos": {
+        "Papas Fritas": {
+          "Precio": 500,
+          "Duracion": 3,
+          "Salado": true
+        },
+        "Maduros": {
+          "Precio": 700,
+          "Duracion": 2,
+          "Salado": false
+        },
+        "Sopa del dia": {
+          "Precio": 1700,
+          "Duracion": 5,
+          "Salado": false
+        }
+      },
+      "Bebidas": {
+        "Gaseosa": {
+          "Precio": 900,
+          "Duracion": 10,
+          "Tamano": 330
+        },
+        "Natural": {
+          "Precio": 1100,
+          "Duracion": 2,
+          "Tamano": 250
+        },
+        "Cafe": {
+          "Precio": 600,
+          "Duracion": 3,
+          "Tamano": 200
+        }
+      }
+    },
+    "Combos": {
+      "Combo Economico": {
+        "Plato fuerte": false,
+        "Acompanamiento": true,
+        "Bebida": true
+      },
+      "Combo Normal": {
+        "Plato fuerte": true,
+        "Acompanamiento": false,
+        "Bebida": true
+      },
+      "Combo full": {
+        "Plato fuerte": true,
+        "Acompanamiento": true,
+        "Bebida": true
+      }
+    }
+  }
+}

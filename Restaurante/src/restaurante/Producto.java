@@ -1,14 +1,15 @@
-public class Producto
+package restaurante;
+
+public abstract class Producto
 {
     String nombre;
-    int precio;
+    float precio;
     int tiempoProd;
 
-    public Producto()
-    {
-        nombre = "";
-        precio = 0;
-        tiempoProd = 0;
+    public Producto(String nombre, float precio, int tiempoProd) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.tiempoProd = tiempoProd;
     }
 
     public void setNombre(String nombre)
@@ -20,11 +21,11 @@ public class Producto
         return this.nombre;
     }
 
-    public void setPrecio(int precio)
+    public void setPrecio(float precio)
     {
         this.precio = precio;
     }
-    public int getPrecio()
+    public float getPrecio()
     {
         return this.precio;
     }
