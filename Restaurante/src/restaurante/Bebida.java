@@ -5,11 +5,14 @@ public class Bebida extends Producto
 
     private boolean fria;
     private TamanoBebida tamano;
+    int costoProduccion;
 
-    public Bebida(String nombre, float precio, int tiempoProd, boolean fria, TamanoBebida tamano) {
+    public Bebida(String nombre, float precio, int tiempoProd, boolean fria, TamanoBebida tamano, int costoProduccion)
+    {
         super(nombre, precio, tiempoProd);
         this.fria = fria;
         this.tamano = tamano;
+        costoProduccion = 1;
     }
 
     public boolean isFria() {

@@ -2,6 +2,12 @@ package restaurante;
 
 import java.util.List;
 
-public class Orden {
+public class Orden
+{
     private List<Producto> ordenCliente;
+    
+    public Orden()
+    {
+        //
+    }
 }
