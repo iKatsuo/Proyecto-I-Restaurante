@@ -7,6 +7,21 @@ public abstract class Cliente {
     private int contador;
     private List<Producto> pedido;
     private Orden orden;
+    private int contadorPaciencia;
+
+    public Cliente(String nombre, int contador, List<Producto> pedido, Orden orden, int contadorPaciencia)
+    {
+        int num = (int)(Math.random()*2+1);
+
+        if (num == 2)
+        {
+            this.contadorPaciencia = contadorPaciencia;
+        }
+        this.nombre = nombre;
+        this.contador = contador;
+        this.pedido = pedido;
+        this.orden = orden;
+    }
 
     public String getNombre() {
         return nombre;
@@ -38,5 +53,15 @@ public abstract class Cliente {
 
     public void setOrden(Orden orden) {
         this.orden = orden;
+    }
+
+    public void setPaciencia(int contadorPaciencia)
+    {
+        this.contadorPaciencia = contadorPaciencia;
+    }
+
+    public int getPaciencia()
+    {
+        return this.contadorPaciencia;
     }
 }
