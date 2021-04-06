@@ -1,89 +1,122 @@
 {
   "Menu": {
     "Productos": {
-      "Platos Fuerte": {
-        "Tacos al Pastor": {
-          "Precio": 3500,
-          "Duracion": 7,
-          "Mediano": true
+      "Plato Fuerte": [
+        {
+          "id": 1,
+          "nombre": "Tacos al Pastor",
+          "precio": 3500,
+          "tiempoProd": 7,
+          "mediano": true
         },
-        "Hamburguesa Sencilla": {
-          "Precio": 4500,
-          "Duracion": 10,
-          "Mediano": true
+        {
+          "id": 2,
+          "nombre": "Hamburguesa Sencilla",
+          "precio": 4500,
+          "tiempoProd": 10,
+          "mediano": true
         },
-        "Quesadillas": {
-          "Precio": 6700,
-          "Duracion": 6,
-          "Mediano": false
+        {
+          "id": 3,
+          "nombre": "Quesadillas",
+          "precio": 6700,
+          "tiempoProd": 6,
+          "mediano": false
         },
-        "Burrito": {
-          "Precio": 3000,
-          "Duracion": 8,
-          "Mediano": false
+        {
+          "id": 4,
+          "nombre": "Burrito",
+          "precio": 3000,
+          "tiempoProd": 8,
+          "mediano": false
         },
-        "Ensalada Premium": {
-          "Precio": 6000,
-          "Duracion": 3,
-          "Mediano": false
+        {
+          "id": 5,
+          "nombre": "Ensalada Premium",
+          "precio": 6000,
+          "tiempoProd": 3,
+          "mediano": false
         },
-        "Falafel": {
-          "Precio": 2500,
-          "Duracion": 4,
-          "Mediano": true
+        {
+          "id": 6,
+          "nombre": "Falafel",
+          "precio": 2500,
+          "tiempoProd": 4,
+          "mediano": true
         }
-      },
-      "Acompanamientos": {
-        "Papas Fritas": {
-          "Precio": 500,
-          "Duracion": 3,
-          "Salado": true
+      ],
+      "Acompanamiento": [
+        {
+          "id": 1,
+          "nombre": "Papas Fritas",
+          "precio": 500,
+          "tiempoProd": 3,
+          "salado": true
         },
-        "Maduros": {
-          "Precio": 700,
-          "Duracion": 2,
-          "Salado": false
+        {
+          "id": 2,
+          "nombre": "Maduros",
+          "precio": 700,
+          "tiempoProd": 2,
+          "salado": false
         },
-        "Sopa del dia": {
-          "Precio": 1700,
-          "Duracion": 5,
-          "Salado": false
+        {
+          "id": 3,
+          "nombre": "Sopa del dia",
+          "precio": 1700,
+          "tiempoProd": 5,
+          "salado": false
         }
-      },
-      "Bebidas": {
-        "Gaseosa": {
-          "Precio": 900,
-          "Duracion": 10,
-          "Tamano": 330
+      ],
+      "Bebida": [
+        {
+          "id": 1,
+          "nombre": "Gaseosa",
+          "precio": 900,
+          "tiempoProd": 10,
+          "tamano": "GRANDE"
         },
-        "Natural": {
-          "Precio": 1100,
-          "Duracion": 2,
-          "Tamano": 250
+        {
+          "id": 2,
+          "nombre": "Natural",
+          "precio": 1100,
+          "tiempoProd": 2,
+          "tamano": "MEDIANO"
         },
-        "Cafe": {
-          "Precio": 600,
-          "Duracion": 3,
-          "Tamano": 200
+        {
+          "id": 3,
+          "nombre": "Cafe",
+          "precio": 600,
+          "tiempoProd": 3,
+          "tamano": "PEQUENO"
         }
-      }
+      ]
     },
-    "Combos": {
-      "Combo Economico": {
-        "Plato fuerte": false,
-        "Acompanamiento": true,
-        "Bebida": true
+    "Combos": [
+      {
+        "id": 1,
+        "nombre": "Combo Economico",
+        "platoFuerte": false,
+        "acompanamiento": true,
+        "bebida": true,
+        "reduccionPrecio": 10
       },
-      "Combo Normal": {
-        "Plato fuerte": true,
-        "Acompanamiento": false,
-        "Bebida": true
+      {
+        "id": 2,
+        "nombre": "Combo Normal",
+        "platoFuerte": true,
+        "acompanamiento": false,
+        "bebida": true,
+        "reduccionPrecio": 15
       },
-      "Combo full": {
-        "Plato fuerte": true,
-        "Acompanamiento": true,
-        "Bebida": true
+      {
+        "id": 3,
+        "nombre": "Combo full",
+        "platoFuerte": true,
+        "acompanamiento": true,
+        "bebida": true,
+        "reduccionPrecio": 20
       }
-    }
+    ]
   }
 }

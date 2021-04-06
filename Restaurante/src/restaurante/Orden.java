@@ -6,8 +6,5 @@ public class Orden
 {
     private List<Producto> ordenCliente;
     
-    public Orden()
-    {
-        //
-    }
+    //Se necesita aqui una funcion que identifique cuantos combos esta pidiendo el cliente
 }

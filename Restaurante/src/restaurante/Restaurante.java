@@ -4,10 +4,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Restaurante {
+    private Menu menu;
+    private Cocina cocina;
     private Queue<Cliente> clientesEnEspera = new LinkedList<>();
     private int gananciaTotal;
     private int clientesInsatisfechos;
     private int ordenesCompletadas;
+
+    public Restaurante() {
+        menu = new Menu();
+        cocina = new Cocina();
+    }
 
     public Queue<Cliente> getClientesEnEspera() {
         return clientesEnEspera;

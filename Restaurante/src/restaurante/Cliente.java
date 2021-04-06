@@ -64,4 +64,6 @@ public abstract class Cliente {
     {
         return this.contadorPaciencia;
     }
+
+    //Funcion para que el cliente sepa que es lo que quiere pedir
 }

@@ -2,6 +2,7 @@ package restaurante;
 
 public abstract class Producto
 {
+    int id;
     String nombre;
     float precio;
     int tiempoProd;

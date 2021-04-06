@@ -15,6 +15,10 @@ public class Bebida extends Producto
         costoProduccion = 1;
     }
 
+    public Bebida(String nombre, float precio, int tiempoProd) {
+        super(nombre, precio, tiempoProd);
+    }
+
     public boolean isFria() {
         return fria;
     }
@@ -29,5 +33,18 @@ public class Bebida extends Producto
 
     public void setTamano(TamanoBebida tamano) {
         this.tamano = tamano;
+    }
+
+    @Override
+    public String toString() {
+        return "Bebida{" +
+                "fria=" + fria +
+                ", tamano=" + tamano +
+                ", costoProduccion=" + costoProduccion +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", tiempoProd=" + tiempoProd +
+                '}';
     }
 }
