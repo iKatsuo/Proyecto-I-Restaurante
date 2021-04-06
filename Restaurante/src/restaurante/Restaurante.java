@@ -1,12 +1,14 @@
 package restaurante;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Restaurante {
     private Menu menu;
     private Cocina cocina;
-    private Queue<Cliente> clientesEnEspera = new LinkedList<>();
+    private Queue<Cliente> clientesEnFila;
+    private List<ClienteAgresivo> clientesEnEsperaAgresivos;
     private Cliente clienteActual;
     private int gananciaTotal;
     private int clientesInsatisfechos;
@@ -18,14 +20,16 @@ public class Restaurante {
         clientesInsatisfechos = 0;
         gananciaTotal = 0;
         ordenesCompletadas = 0;
+        clientesEnFila = new LinkedList<Cliente>();
+        clientesEnEsperaAgresivos = new LinkedList<ClienteAgresivo>();
     }
 
-    public Queue<Cliente> getClientesEnEspera() {
-        return clientesEnEspera;
+    public Queue<Cliente> getClientesEnFila() {
+        return clientesEnFila;
     }
 
-    public void setClientesEnEspera(Queue<Cliente> clientesEnEspera) {
-        this.clientesEnEspera = clientesEnEspera;
+    public void setClientesEnFila(Queue<Cliente> clientesEnFila) {
+        this.clientesEnFila = clientesEnFila;
     }
 
     public int getGananciaTotal() {
@@ -57,7 +61,7 @@ public class Restaurante {
     }
 
     public void addCliente(Cliente cliente){
-        clientesEnEspera.add(cliente);
+        clientesEnFila.add(cliente);
     }
 
     //Aqui tiene que estar el metodo de la simulacion del restaurante, verificar contadores principalmente
@@ -68,10 +72,10 @@ public class Restaurante {
     // 3 = Un cliente agresivo se ha enojado y se ha ido sin recibir la orden
     public int simulacion(){
         //Se revisa si la lista no esta vacia o el cliente no es nulo
-        if(!clientesEnEspera.isEmpty() || clienteActual != null){
+        if(!clientesEnFila.isEmpty() || clienteActual != null){
             if(clienteActual == null){
                 System.out.println("Obteniendo un cliente nuevo");
-                clienteActual = clientesEnEspera.remove();
+                clienteActual = clientesEnFila.remove();
                 return 1;
             }
             //Esto es para los casos cuando el cliente aun no ha pedido

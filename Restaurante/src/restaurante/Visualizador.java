@@ -3,7 +3,6 @@ package restaurante;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 public class Visualizador extends JFrame{
     private Restaurante restaurante;
@@ -16,6 +15,7 @@ public class Visualizador extends JFrame{
     private JLabel contadorLabel;
     private JLabel pacienciaLabel;
     private JLabel tiempoLabel;
+    private JButton listaDePedidosActualesButton;
 
     public Visualizador(String titulo, Restaurante restaurante){
         super(titulo);
@@ -27,7 +27,7 @@ public class Visualizador extends JFrame{
         avanzarElContadorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(restaurante.getClientesEnEspera().isEmpty() && restaurante.getClienteActual() == null){
+                if(restaurante.getClientesEnFila().isEmpty() && restaurante.getClienteActual() == null){
                     //Termina el programa
                     JOptionPane.showMessageDialog(home,"Se han acabado los clientes por atender. Gracias por Visitarnos.");
                     System.out.println("Cerrando la simulación del restaurante");
@@ -71,7 +71,7 @@ public class Visualizador extends JFrame{
                         "Clientes Insatisfechos: " + restaurante.getClientesInsatisfechos() +
                         "\nGanancia total del Restaurante: " + restaurante.getGananciaTotal() +
                         "\nOrdenes completadas: " + restaurante.getOrdenesCompletadas() +
-                        "\nClientes restantes en la fila: " + restaurante.getClientesEnEspera().size());
+                        "\nClientes restantes en la fila: " + restaurante.getClientesEnFila().size());
             }
         });
     }

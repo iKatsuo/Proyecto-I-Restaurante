@@ -1,17 +1,20 @@
 package restaurante;
 
+import java.util.List;
+
 public class Cocina {
-    private Pedido pedido;
+    private List<Pedido> listaDePedidos;
+    private Pedido pedidoActual;
 
     public void cocinar(){
-        pedido.generarCombos();
+        pedidoActual.generarCombos();
     }
 
-    public Pedido getPedido() {
-        return pedido;
+    public Pedido getPedidoActual() {
+        return pedidoActual;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public void setPedidoActual(Pedido pedidoActual) {
+        this.pedidoActual = pedidoActual;
     }
 }
