@@ -25,7 +25,9 @@ public class App
         }
 
         //Mostrar la ventana del GUI - A partir de aquí, el visualizador se encarga de lo demas
-        JFrame gui = new Visualizador("Simulación Restaurante", restaurante);
+        JFrame pedidosGui = new PedidosGui("Pedidos pendientes", restaurante);
+        JFrame gui = new Visualizador("Simulación Restaurante", restaurante, pedidosGui);
+
         gui.setVisible(true);
 
     }

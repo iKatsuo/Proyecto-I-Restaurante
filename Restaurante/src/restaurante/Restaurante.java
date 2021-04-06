@@ -52,6 +52,10 @@ public class Restaurante {
         return clienteActual;
     }
 
+    public List<Pedido> obtenerPedidos(){
+        return cocina.getListaDePedidos();
+    }
+
     public int getOrdenesCompletadas() {
         return ordenesCompletadas;
     }

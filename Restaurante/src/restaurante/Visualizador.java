@@ -16,13 +16,15 @@ public class Visualizador extends JFrame{
     private JLabel pacienciaLabel;
     private JLabel tiempoLabel;
     private JButton listaDePedidosActualesButton;
+    private JFrame pedidosGui;
 
-    public Visualizador(String titulo, Restaurante restaurante){
+    public Visualizador(String titulo, Restaurante restaurante, JFrame pedidosGui){
         super(titulo);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(home);
-        this.pack();
+        this.setSize(800,600);
         this.restaurante = this.restaurante;
+        this.pedidosGui = pedidosGui;
 
         avanzarElContadorButton.addActionListener(new ActionListener() {
             @Override
@@ -72,6 +74,12 @@ public class Visualizador extends JFrame{
                         "\nGanancia total del Restaurante: " + restaurante.getGananciaTotal() +
                         "\nOrdenes completadas: " + restaurante.getOrdenesCompletadas() +
                         "\nClientes restantes en la fila: " + restaurante.getClientesEnFila().size());
+            }
+        });
+        listaDePedidosActualesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pedidosGui.setVisible(true);
             }
         });
     }
