@@ -1,6 +1,17 @@
 package restaurante;
 
 public class Cocina {
-    private Cliente clienteActual;
-    private Orden orden;
+    private Pedido pedido;
+
+    public void cocinar(){
+        pedido.generarCombos();
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
 }

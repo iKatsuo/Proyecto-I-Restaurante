@@ -1,10 +1,14 @@
 package restaurante;
 
-import java.util.List;
-
 public class Orden
 {
-    private List<Producto> ordenCliente;
-    
-    //Se necesita aqui una funcion que identifique cuantos combos esta pidiendo el cliente
+    private TipoProducto tipoProducto;
+    private int id;
+    private int idCombo;
+
+    public Orden(TipoProducto tipoProducto, int id, int idCombo) {
+        this.tipoProducto = tipoProducto;
+        this.id = id;
+        this.idCombo = idCombo;
+    }
 }
