@@ -1,14 +1,21 @@
 package restaurante;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Orden
 {
-    private TipoProducto tipoProducto;
-    private int id;
-    private int idCombo;
+    private List<Producto> productosCliente;
 
-    public Orden(TipoProducto tipoProducto, int id, int idCombo) {
-        this.tipoProducto = tipoProducto;
-        this.id = id;
-        this.idCombo = idCombo;
+    public Orden(){
+        productosCliente = new ArrayList<>();
+    }
+
+    public void agregarProducto(Producto producto){
+        productosCliente.add(producto);
+    }
+
+    public List<Producto> getProductosCliente() {
+        return productosCliente;
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Cliente {
     private String nombre;
     public int contador;
-    private List<Orden> ordenCliente;
+    private Orden ordenCliente;
     public boolean enEspera;
 
     public Cliente(String nombre, int contador)
@@ -13,26 +13,16 @@ public abstract class Cliente {
         this.nombre = nombre;
         this.contador = contador;
         this.enEspera = true;
+        ordenCliente = new Orden();
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public int getContador() {
         return contador;
     }
-
-    public void setContador(int contador) {
-        this.contador = contador;
-    }
-
-    //Funcion para que el cliente sepa que es lo que quiere pedir
-
 
     public boolean isEnEspera() {
         return enEspera;
@@ -44,8 +34,16 @@ public abstract class Cliente {
 
     public abstract void decrementarContador();
 
-    public List<Orden> pedir(){
-        System.out.println("Aqui se crea la orden y ya la pidio en el sistema");
+    public Orden pedir(Menu menu){
+        int cantidadDeProductos = (int)(Math.random()*10+1);
+
+        for(int i = 0; i < cantidadDeProductos; i++){
+            int tipo = (int)(Math.random()*3);
+            System.out.println(tipo);
+            int id = (int)(Math.random()*(menu.cantidadProducto(tipo)));
+            ordenCliente.agregarProducto(menu.getProducto(tipo, id));
+        }
+
         return this.ordenCliente;
     }
 }

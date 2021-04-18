@@ -8,8 +8,9 @@ public class Combo {
     private boolean platoFuerte;
     private boolean acompanamiento;
     private boolean bebida;
-    private List<Producto> productosDelCombo;
-    private int tiempoDeProduccion;
+
+
+    public Combo(){}
 
     public Combo(String nombre, int reduccionPrecio, boolean platoFuerte, boolean acompanamiento, boolean bebida) {
         this.nombre = nombre;
@@ -49,4 +50,19 @@ public class Combo {
     //public float getPrecioTotal(){
         //return (platoFuerte.getPrecio()+bebida.getPrecio()+acompanamiento.getPrecio())*(1-(reduccionPrecio/100));
     //}
+
+
+    public boolean isPlatoFuerte() {
+        return platoFuerte;
+    }
+
+    public boolean isAcompanamiento() {
+        return acompanamiento;
+    }
+
+    public boolean isBebida() {
+        return bebida;
+    }
+
+
 }

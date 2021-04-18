@@ -8,14 +8,15 @@ public class Visualizador extends JFrame{
     private Restaurante restaurante;
     private JButton avanzarElContadorButton;
     private JButton informaciónDelRestauranteButton;
-    private JList productosList;
+    private JList pedidosList;
     private JPanel home;
     private JLabel clienteLabel;
     private JLabel tipoLabel;
     private JLabel contadorLabel;
     private JLabel pacienciaLabel;
+    private JButton listaDeClientesEsperaButton;
     private JLabel tiempoLabel;
-    private JButton listaDePedidosActualesButton;
+    private JButton infoPedidosButton;
     private JFrame pedidosGui;
 
     public Visualizador(String titulo, Restaurante restaurante, JFrame pedidosGui){
@@ -29,10 +30,17 @@ public class Visualizador extends JFrame{
         avanzarElContadorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(restaurante.getClientesEnFila().isEmpty() && restaurante.getClienteActual() == null){
+                if(restaurante.getClientesEnFila().isEmpty() && restaurante.getClienteActual() == null && restaurante.getPedidosPendientes().isEmpty()){
                     //Termina el programa
                     JOptionPane.showMessageDialog(home,"Se han acabado los clientes por atender. Gracias por Visitarnos.");
                     System.out.println("Cerrando la simulación del restaurante");
+                    JOptionPane.showMessageDialog(home,"Estadisticas generales del Restaurante Finales:\n" +
+                            "Clientes Insatisfechos: " + restaurante.getClientesInsatisfechos() +
+                            "\nGanancia total del Restaurante: " + restaurante.getGananciaTotal() +
+                            "\nOrdenes completadas: " + restaurante.getOrdenesCompletadas() +
+                            "\nClientes restantes en la fila: " + restaurante.getClientesEnFila().size());
+
+
                     setVisible(false);
                     dispose();
 
@@ -76,7 +84,7 @@ public class Visualizador extends JFrame{
                         "\nClientes restantes en la fila: " + restaurante.getClientesEnFila().size());
             }
         });
-        listaDePedidosActualesButton.addActionListener(new ActionListener() {
+        listaDeClientesEsperaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pedidosGui.setVisible(true);

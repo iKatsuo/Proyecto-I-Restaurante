@@ -67,4 +67,12 @@ public class Menu {
 
 
     }
+
+    public Producto getProducto(int tipo, int id){
+        return listProductos.get(tipo)[id];
+    }
+
+    public int cantidadProducto(int tipo){
+        return listProductos.get(tipo).length;
+    }
 }
