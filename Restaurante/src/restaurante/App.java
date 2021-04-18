@@ -16,7 +16,7 @@ public class App
         Restaurante restaurante = new Restaurante();
 
         //Creacion de clientes
-        for(int i = 0; i<5; i++){
+        for(int i = 0; i<20; i++){
             Cliente cliente;
             int num = (int)(Math.random()*3+1);
             if(num==3) cliente = new ClienteAgresivo(faker.name().fullName(), (int)(Math.random()*7+1));
@@ -25,8 +25,8 @@ public class App
         }
 
         //Mostrar la ventana del GUI - A partir de aquí, el visualizador se encarga de lo demas
-        JFrame pedidosGui = new ClientesGui("Clientes Agresivos en Espera", restaurante);
-        JFrame gui = new Visualizador("Simulación Restaurante", restaurante, pedidosGui);
+        JFrame pedidosGui = new ClientesGui("Clientes Agresivos en Espera", restaurante, restaurante.getClientesAgresivosModel());
+        JFrame gui = new Visualizador("Simulación Restaurante", restaurante, pedidosGui, restaurante.getPedidosModel());
 
         gui.setVisible(true);
 

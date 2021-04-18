@@ -19,13 +19,18 @@ public class Visualizador extends JFrame{
     private JButton infoPedidosButton;
     private JFrame pedidosGui;
 
-    public Visualizador(String titulo, Restaurante restaurante, JFrame pedidosGui){
+
+    public Visualizador(String titulo, Restaurante restaurante, JFrame pedidosGui, DefaultListModel model){
         super(titulo);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(home);
         this.setSize(800,600);
         this.restaurante = this.restaurante;
         this.pedidosGui = pedidosGui;
+
+        pedidosList.setModel(model);
+
+
 
         avanzarElContadorButton.addActionListener(new ActionListener() {
             @Override
@@ -48,6 +53,7 @@ public class Visualizador extends JFrame{
                 else {
                     //Empieza la simulación del restaurante, decrementando contadores del Cliente
                     int status = restaurante.simulacion();
+                    tiempoLabel.setText(String.valueOf(restaurante.getTiempo()));
 
                     switch (status){
                         case 1:
@@ -88,6 +94,13 @@ public class Visualizador extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 pedidosGui.setVisible(true);
+            }
+        });
+        infoPedidosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Pedido pedido = restaurante.getPedidoByNombre((String) pedidosList.getSelectedValue());
+                JOptionPane.showMessageDialog(home,pedido.toString());
             }
         });
     }

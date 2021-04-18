@@ -1,5 +1,8 @@
 package restaurante;
 
+import javax.swing.*;
+import java.util.List;
+
 public class ClienteAgresivo extends Cliente {
     private int contadorPaciencia;
 
@@ -16,6 +19,14 @@ public class ClienteAgresivo extends Cliente {
 
     public static boolean verificarPaciencia(ClienteAgresivo cliente){
         return(cliente.contador > cliente.contadorPaciencia && !cliente.enEspera);
+    }
+
+    public static DefaultListModel toList(List<ClienteAgresivo> lista){
+        DefaultListModel modelo = new DefaultListModel();
+        for(int i = 0; i < lista.size(); i++){
+            modelo.addElement(lista.get(i).getNombre());
+        }
+        return modelo;
     }
 
     public int getContadorPaciencia() {

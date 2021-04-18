@@ -13,7 +13,7 @@ public class ComboCliente extends Combo {
         this.productosDelCombo.add(acompanamiento);
         this.productosDelCombo.add(bebida);
         Combo comboMenu = getComboMenu(menu, null, acompanamiento, bebida);
-        this.tiempoDeProduccion = acompanamiento.costoProduccion + bebida.costoProduccion;
+        this.tiempoDeProduccion = acompanamiento.getTiempoProd() + bebida.getTiempoProd();
         this.precio = (acompanamiento.getPrecio() + bebida.getPrecio())*(1-(comboMenu.getReduccionPrecio()/100));
         this.setNombre(comboMenu.getNombre());
         this.setReduccionPrecio(comboMenu.getReduccionPrecio());
@@ -24,7 +24,7 @@ public class ComboCliente extends Combo {
         productosDelCombo.add(platoFuerte);
         productosDelCombo.add(bebida);
         Combo comboMenu = getComboMenu(menu, platoFuerte, null, bebida);
-        this.tiempoDeProduccion = platoFuerte.costoProduccion + bebida.costoProduccion;
+        this.tiempoDeProduccion = platoFuerte.getTiempoProd() + bebida.getTiempoProd();
         this.precio = (platoFuerte.getPrecio() + bebida.getPrecio())*(1-(comboMenu.getReduccionPrecio()/100));
         this.setNombre(comboMenu.getNombre());
         this.setReduccionPrecio(comboMenu.getReduccionPrecio());
@@ -36,7 +36,7 @@ public class ComboCliente extends Combo {
         productosDelCombo.add(acompanamiento);
         productosDelCombo.add(bebida);
         Combo comboMenu = getComboMenu(menu, platoFuerte, acompanamiento, bebida);
-        this.tiempoDeProduccion = platoFuerte.costoProduccion + acompanamiento.costoProduccion + bebida.costoProduccion;
+        this.tiempoDeProduccion = platoFuerte.getTiempoProd() + acompanamiento.getTiempoProd() + bebida.getTiempoProd();
         this.precio = (platoFuerte.getPrecio() + acompanamiento.getPrecio() + bebida.getPrecio())*(1-(comboMenu.getReduccionPrecio()/100));
         this.setNombre(comboMenu.getNombre());
         this.setReduccionPrecio(comboMenu.getReduccionPrecio());

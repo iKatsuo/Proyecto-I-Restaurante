@@ -1,8 +1,10 @@
 package restaurante;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Pedido {
     private Orden ordenCliente;
@@ -85,6 +87,7 @@ public class Pedido {
             this.valorDelPedido += pd.getPrecio();
         }
         if(combosSolicitados != null) {
+
             for (ComboCliente cb : combosSolicitados) {
                 this.duracion += cb.getTiempoDeProduccion();
                 this.valorDelPedido += cb.getPrecio();
@@ -143,5 +146,40 @@ public class Pedido {
 
     public double getValorDelPedido() {
         return valorDelPedido;
+    }
+
+    public static DefaultListModel toList(HashMap<Cliente, Pedido> lista){
+        DefaultListModel modelo = new DefaultListModel();
+        for (Map.Entry pedido : lista.entrySet()) {
+            Cliente cliente = (Cliente) pedido.getKey();
+            modelo.addElement(cliente.getNombre());
+        }
+        return modelo;
+    }
+
+    public String toString(){
+        return "Cliente: " + cliente.getNombre() +
+                "\nProductos Individuales:\n " + productosToString(this.productosIndividuales) +
+                "\nCombos pedidos:\n " + combosToString(this.combosSolicitados) +
+                "\nTiempo para preparar pedido: " + String.valueOf(duracion) +
+                "\nCosto del pedido: " + String.valueOf(valorDelPedido);
+    }
+
+    public String productosToString(List<Producto> productos){
+        String val = "";
+        for(Producto producto : productos){
+            val += "Producto: " + producto.getNombre() + " Tipo: " + String.valueOf(producto.getClass());
+            val += "\n";
+        }
+        return val;
+    }
+
+    public String combosToString(List<ComboCliente> combos){
+        String val = "";
+        for(ComboCliente combo : combos){
+            val += "Combo: " + combo.getNombre();
+            val += "\n";
+        }
+        return val;
     }
 }

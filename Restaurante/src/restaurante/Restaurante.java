@@ -1,5 +1,6 @@
 package restaurante;
 
+import javax.swing.*;
 import java.util.*;
 
 public class Restaurante {
@@ -11,6 +12,8 @@ public class Restaurante {
     private int gananciaTotal;
     private int clientesInsatisfechos;
     private int ordenesCompletadas;
+    private DefaultListModel pedidosModel;
+    private DefaultListModel clientesAgresivosModel;
 
     public Restaurante() {
         menu = new Menu();
@@ -20,6 +23,8 @@ public class Restaurante {
         ordenesCompletadas = 0;
         clientesEnFila = new LinkedList<Cliente>();
         clientesEnEsperaAgresivos = new LinkedList<ClienteAgresivo>();
+        pedidosModel = Pedido.toList(this.getPedidosPendientes());
+        clientesAgresivosModel = ClienteAgresivo.toList(this.getClientesEnEsperaAgresivos());
     }
 
     public Queue<Cliente> getClientesEnFila() {
@@ -83,15 +88,17 @@ public class Restaurante {
             if(clienteActual != null) {
                 if (clienteActual.isEnEspera()) {
                     clienteActual.decrementarContador();
-                    if (clienteActual.getContador() == 0) {
+                    if (clienteActual.getContador() == -1) {
                         clienteActual.setEnEspera(false);
                         Orden orden = clienteActual.pedir(menu);
                         //Aqui hay que convertir la orden en un pedido y enviarlo a la cocina
                         Pedido pedido = new Pedido(orden, clienteActual, menu);
+                        pedidosModel.addElement(pedido.getCliente().getNombre());
                         cocina.addPedido(pedido);
 
                         if (clienteActual.getClass() == ClienteAgresivo.class) {
                             clientesEnEsperaAgresivos.add((ClienteAgresivo) clienteActual);
+                            clientesAgresivosModel.addElement(clienteActual.getNombre());
                             clienteActual = null;
                         }
                         clienteActual = null;
@@ -130,6 +137,8 @@ public class Restaurante {
             if(cliente.getContador() == cliente.getContadorPaciencia()) {
                 clientesEnEsperaAgresivos.remove(cliente);
                 cocina.removePedidoDeLista((Cliente) cliente);
+                clientesAgresivosModel.removeElement(cliente.getNombre());
+                pedidosModel.removeElement(cliente.getNombre());
                 flag = true;
             }
         }
@@ -140,14 +149,44 @@ public class Restaurante {
         for (Map.Entry pedido : pedidos.entrySet()) {
             Cliente clienteActual = (Cliente) pedido.getKey();
             Pedido pedidoActual = (Pedido) pedido.getValue();
-            if(clienteActual.getClass() == ClienteAgresivo.class) clientesEnEsperaAgresivos.remove(clienteActual);
+            if(clienteActual.getClass() == ClienteAgresivo.class) {
+                clientesEnEsperaAgresivos.remove(clienteActual);
+                clientesAgresivosModel.removeElement(clienteActual.getNombre());
+            }
             ordenesCompletadas++;
             gananciaTotal += pedidoActual.getValorDelPedido();
             cocina.removePedidoDeLista((Cliente)pedido.getKey());
+            pedidosModel.removeElement(clienteActual.getNombre());
+
         }
     }
 
     public HashMap<Cliente, Pedido> getPedidosPendientes(){
         return cocina.getListaDePedidos();
+    }
+
+    public int getTiempo(){
+        return cocina.getTiempo();
+    }
+
+    public List<ClienteAgresivo> getClientesEnEsperaAgresivos(){
+        return clientesEnEsperaAgresivos;
+    }
+
+    public DefaultListModel getPedidosModel() {
+        return pedidosModel;
+    }
+
+    public DefaultListModel getClientesAgresivosModel() {
+        return clientesAgresivosModel;
+    }
+
+    public Pedido getPedidoByNombre(String nombre){
+        HashMap<Cliente, Pedido> listaPedidos = this.getPedidosPendientes();
+        for (Map.Entry pedido : listaPedidos.entrySet()) {
+            Cliente cliente = (Cliente) pedido.getKey();
+            if(cliente.getNombre() == nombre) return (Pedido) pedido.getValue();
+        }
+        return null;
     }
 }
