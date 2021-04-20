@@ -35,7 +35,7 @@ public class Pedido {
         this.generarCombos(menu);
     }
 
-    public void generarCombos(Menu menu){
+    private void generarCombos(Menu menu){
         //Aqui genera los combos desde la lista cantidadCombos y se elimina los productos de productosIndividuales
         //si se le puede hacer algun combo
         List<Producto> productosDelCliente = ordenCliente.getProductosCliente();
@@ -47,8 +47,8 @@ public class Pedido {
             if(pd.getClass() == Acompanamiento.class) this.acompanamientosContador++;
         }
         System.out.println("Antes de generar los combos");
-        System.out.println(productosIndividuales.toString());
-        System.out.println(combosSolicitados.toString());
+        System.out.println("Productos individuales: " + productosIndividuales.toString());
+        System.out.println("Lista de Combos: " + combosSolicitados.toString());
 
         while((platosFuerteContador != 0 && bebidasContador != 0)||(bebidasContador != 0 && acompanamientosContador != 0)){
             if(platosFuerteContador != 0){
@@ -58,25 +58,22 @@ public class Pedido {
                         //Combo completo con las 3 cosas
                         combosSolicitados.add(new ComboCliente(getAndRemovePlatoFuerte(),
                                 getAndRemoveAcompanamiento(), getAndRemoveBebida(), menu));
-                        System.out.println("Op 1 F");
 
                     }else{
                         //Combo de platoFuerte con bebida
                         combosSolicitados.add(new ComboCliente(getAndRemovePlatoFuerte(), getAndRemoveBebida(), menu));
-                        System.out.println("Op 2 F");
                     }
                 }
             }else if (bebidasContador != 0){
                 if(acompanamientosContador != 0){
                     //Combo de bebida y acompanamiento
                     combosSolicitados.add(new ComboCliente(getAndRemoveAcompanamiento(), getAndRemoveBebida(), menu));
-                    System.out.println("Op 3 F");
                 }
             }
         }
         System.out.println("Despues de generar los combos");
-        System.out.println(productosIndividuales.toString());
-        System.out.println(combosSolicitados.toString());
+        System.out.println("Productos individuales: " + productosIndividuales.toString());
+        System.out.println("Lista de Combos: " + combosSolicitados.toString());
         this.actualizarValorYTiempoDelPedido();
     }
 

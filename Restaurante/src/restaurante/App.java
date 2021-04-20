@@ -16,11 +16,14 @@ public class App
         Restaurante restaurante = new Restaurante();
 
         //Creacion de clientes
-        for(int i = 0; i<20; i++){
+        for(int i = 0; i < Constants.NUM_CLIENTES.getValue(); i++){
             Cliente cliente;
-            int num = (int)(Math.random()*3+1);
-            if(num==3) cliente = new ClienteAgresivo(faker.name().fullName(), (int)(Math.random()*7+1));
-            else cliente = new ClientePasivo(faker.name().fullName(), (int)(Math.random()*7+1));
+            int num = (int)(Math.random()*Constants.PROBABILIDAD_AGRESIVO.getValue()+1);
+            if(num==3) cliente = new ClienteAgresivo(
+                    faker.name().fullName(), (int)(Math.random()*Constants.PACIENCIA_CLIENTES.getValue()+1));
+
+            else cliente = new ClientePasivo(
+                    faker.name().fullName(), (int)(Math.random()*Math.random()*Constants.PACIENCIA_CLIENTES.getValue()+1));
             restaurante.addCliente(cliente);
         }
 

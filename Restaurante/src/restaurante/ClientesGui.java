@@ -30,15 +30,20 @@ public class ClientesGui extends JFrame{
         verInformacionClientesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<ClienteAgresivo> agresivos = restaurante.getClientesEnEsperaAgresivos();
-                String clienteNombre =(String) clientesList.getSelectedValue();
-                ClienteAgresivo selectedCliente = null;
-                for(ClienteAgresivo cliente : agresivos){
-                    if(cliente.getNombre() == clienteNombre) selectedCliente = cliente;
+                try {
+                    List<ClienteAgresivo> agresivos = restaurante.getClientesEnEsperaAgresivos();
+                    String clienteNombre = (String) clientesList.getSelectedValue();
+                    ClienteAgresivo selectedCliente = null;
+                    for (ClienteAgresivo cliente : agresivos) {
+                        if (cliente.getNombre() == clienteNombre) selectedCliente = cliente;
+                    }
+                    JOptionPane.showMessageDialog(home, "Nombre del Cliente: " + selectedCliente.getNombre() +
+                            "\nLimite de Paciencia: " + String.valueOf(selectedCliente.getContadorPaciencia()) +
+                            "\nEl Cliente lleva esperando: " + String.valueOf(selectedCliente.getContador()));
                 }
-                JOptionPane.showMessageDialog(home,"Nombre del Cliente: " + selectedCliente.getNombre() +
-                        "\nLimite de Paciencia: " + String.valueOf(selectedCliente.getContadorPaciencia()) +
-                        "\nEl Cliente lleva esperando: " + String.valueOf(selectedCliente.getContador()));
+                catch (Exception err){
+                    JOptionPane.showMessageDialog(home, "Debe seleccionar un cliente para poder visualizar su información");
+                }
 
             }
         });

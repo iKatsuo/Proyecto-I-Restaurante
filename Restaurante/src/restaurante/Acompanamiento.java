@@ -2,22 +2,22 @@ package restaurante;
 
 public class Acompanamiento extends Producto
 {
-    boolean salado;
-    int costoProduccion;
+    private boolean salado;
 
-    public Acompanamiento(String nombre, float precio, int tiempoProd, boolean salado, int costoProduccion)
+    public Acompanamiento(String nombre, double precio, int tiempoProd, boolean salado)
     {
         super(nombre, precio, tiempoProd);
         this.salado = salado;
-        costoProduccion = 2;
     }
 
-    public void setSabor(boolean salado)
-    {
-        this.salado = salado;
-    }
-    public boolean getSabor()
-    {
-        return this.salado;
+    @Override
+    public String toString() {
+        return "Acompanamiento{" +
+                "salado=" + salado +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", tiempoProd=" + tiempoProd +
+                '}';
     }
 }

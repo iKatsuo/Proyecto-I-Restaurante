@@ -13,8 +13,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-
-
 public class Menu {
     private List<Producto[]> listProductos;
     private List<Combo[]> listCombos;
@@ -32,7 +30,7 @@ public class Menu {
         return listCombos;
     }
 
-    public void jsonReader(){
+    private void jsonReader(){
         File file = new File("Restaurante/menu.json");
         listProductos = new ArrayList<Producto[]>();
         listCombos = new ArrayList<Combo[]>();
@@ -64,8 +62,6 @@ public class Menu {
         catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public Producto getProducto(int tipo, int id){

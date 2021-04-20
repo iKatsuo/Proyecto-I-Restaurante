@@ -47,11 +47,6 @@ public class Combo {
                 '}';
     }
 
-    //public float getPrecioTotal(){
-        //return (platoFuerte.getPrecio()+bebida.getPrecio()+acompanamiento.getPrecio())*(1-(reduccionPrecio/100));
-    //}
-
-
     public boolean isPlatoFuerte() {
         return platoFuerte;
     }
@@ -63,6 +58,5 @@ public class Combo {
     public boolean isBebida() {
         return bebida;
     }
-
 
 }

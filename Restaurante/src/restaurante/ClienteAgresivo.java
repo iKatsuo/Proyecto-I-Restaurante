@@ -8,7 +8,7 @@ public class ClienteAgresivo extends Cliente {
 
     public ClienteAgresivo(String nombre, int contador) {
         super(nombre, contador);
-        this.contadorPaciencia = (int)(Math.random()*10+1);
+        this.contadorPaciencia = (int)(Math.random()*Constants.PACIENCIA_CLIENTES_AGRESIVOS.getValue()+1);
     }
 
     @Override

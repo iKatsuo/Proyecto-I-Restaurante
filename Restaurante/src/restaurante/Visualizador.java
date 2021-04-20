@@ -99,8 +99,13 @@ public class Visualizador extends JFrame{
         infoPedidosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Pedido pedido = restaurante.getPedidoByNombre((String) pedidosList.getSelectedValue());
-                JOptionPane.showMessageDialog(home,pedido.toString());
+                try {
+                    Pedido pedido = restaurante.getPedidoByNombre((String) pedidosList.getSelectedValue());
+                    JOptionPane.showMessageDialog(home, pedido.toString());
+                }
+                catch(Exception err){
+                    JOptionPane.showMessageDialog(home, "Seleccione un pedido para poder visualizar la información.");
+                }
             }
         });
     }

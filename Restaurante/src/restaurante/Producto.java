@@ -4,10 +4,10 @@ public abstract class Producto
 {
     int id;
     String nombre;
-    float precio;
+    double precio;
     int tiempoProd;
 
-    public Producto(String nombre, float precio, int tiempoProd) {
+    public Producto(String nombre, double precio, int tiempoProd) {
         this.nombre = nombre;
         this.precio = precio;
         this.tiempoProd = tiempoProd;
@@ -26,7 +26,7 @@ public abstract class Producto
     {
         this.precio = precio;
     }
-    public float getPrecio()
+    public double getPrecio()
     {
         return this.precio;
     }

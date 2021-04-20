@@ -35,11 +35,10 @@ public abstract class Cliente {
     public abstract void decrementarContador();
 
     public Orden pedir(Menu menu){
-        int cantidadDeProductos = (int)(Math.random()*10+1);
+        int cantidadDeProductos = (int)(Math.random()*Constants.CANTIDAD_PRODUCTOS.getValue()+1);
 
         for(int i = 0; i < cantidadDeProductos; i++){
             int tipo = (int)(Math.random()*3);
-            System.out.println(tipo);
             int id = (int)(Math.random()*(menu.cantidadProducto(tipo)));
             ordenCliente.agregarProducto(menu.getProducto(tipo, id));
         }

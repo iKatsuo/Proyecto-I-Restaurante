@@ -9,7 +9,7 @@ public class Restaurante {
     private Queue<Cliente> clientesEnFila;
     private List<ClienteAgresivo> clientesEnEsperaAgresivos;
     private Cliente clienteActual;
-    private int gananciaTotal;
+    private double gananciaTotal;
     private int clientesInsatisfechos;
     private int ordenesCompletadas;
     private DefaultListModel pedidosModel;
@@ -35,11 +35,11 @@ public class Restaurante {
         this.clientesEnFila = clientesEnFila;
     }
 
-    public int getGananciaTotal() {
+    public double getGananciaTotal() {
         return gananciaTotal;
     }
 
-    public void setGananciaTotal(int gananciaTotal) {
+    public void setGananciaTotal(double gananciaTotal) {
         this.gananciaTotal = gananciaTotal;
     }
 
@@ -123,7 +123,6 @@ public class Restaurante {
                 clientesInsatisfechos++;
                 return 3;
             }
-
             return 2;
         }
         return 0;
